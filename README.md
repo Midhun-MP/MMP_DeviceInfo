@@ -29,6 +29,8 @@ Returns the device name specified in the settings app
 [MMPDeviceInfo getDeviceName];
 ```
 
+———
+
 ###getDeviceOSInfo
 
 ```
@@ -48,6 +50,8 @@ Returns the OS Version.
 [MMPDeviceInfo getDeviceOSInfo]; @endcode
 ```
 
+———
+
 ###getDeviceType
 ```
 + (DeviceType)getDeviceType;  
@@ -64,6 +68,8 @@ Returns the device type, iPad or iPhone.
 ```
 [MMPDeviceInfo getDeviceType];
 ```
+
+———
 
 ###getModelInfo
 ```
@@ -83,6 +89,8 @@ Returns the model info.
 [MMPDeviceInfo getModelInfo];
 ```
 
+———
+
 ###getPlatformInfo
 
 ```
@@ -101,6 +109,8 @@ Returns the platform information.
 ```
 [MMPDeviceInfo getPlatformInfo];
 ```
+
+———
 
 For Further Details Contact:
 
