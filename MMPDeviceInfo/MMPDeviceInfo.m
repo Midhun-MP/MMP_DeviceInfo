@@ -12,6 +12,8 @@
 
 @implementation MMPDeviceInfo
 
+#pragma mark - Device Info -
+
 /*!
  * Returns the platform information
  * @code
@@ -89,5 +91,101 @@
         deviceType = DeviceTypeiPhone;
     }
     return deviceType;
+}
+
+#pragma mark - App Info -
+
+/*!
+ * Returns the app name
+ * @code
+ * [MMPDeviceInfo getAppName];
+ * @endcode
+ * @return NSString - Name of the application
+ */
++ (NSString *)getAppName
+{
+    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    return appName;
+}
+
+/*!
+ * Returns the app name
+ * @code
+ * [MMPDeviceInfo getAppVersion];
+ * @endcode
+ * @return NSString - Version of the application
+ */
++ (NSString *)getAppVersion
+{
+    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    return appName;
+}
+
+#pragma mark - Utility -
+
+/*!
+ * Returns the details of device
+ * @code
+ * [MMPDeviceInfo getDeviceDetails];
+ * @endcode
+ * @return NSDictionary - Contains all the details of device
+ */
++ (NSDictionary *)getDeviceDetails
+{
+    NSString *deviceType = @"Unknown";
+    switch ([self getDeviceType])
+    {
+        case DeviceTypeiPhone:
+            deviceType = @"iPhone";
+            break;
+        case DeviceTypeiPad:
+            deviceType = @"iPad";
+            break;
+            
+        default:
+            deviceType = @"Unknown";
+            break;
+    }
+    
+    NSDictionary *device = @{
+                             @"platform"     : [self getPlatformInfo],
+                             @"os"           : [self getDeviceOSInfo],
+                             @"device_name"  : [self getDeviceName],
+                             @"device_model" : [self getModelInfo],
+                             @"device_type"  : deviceType
+                             };
+    return device;
+}
+
+/*!
+ * Returns the details of application
+ * @code
+ * [MMPDeviceInfo getAppDetails];
+ * @endcode
+ * @return NSDictionary - Contains all the details of application
+ */
++ (NSDictionary *)getAppDetails
+{
+    NSDictionary *app = @{
+                          @"app_name"    : [self getAppName],
+                          @"app_version" : [self getAppVersion]
+                          };
+    return app;
+}
+
+/*!
+ * Returns the all the details of device and application
+ * @code
+ * [MMPDeviceInfo getAllDetails];
+ * @endcode
+ * @return NSDictionary - Contains all the details of device and application
+ */
++ (NSDictionary *)getAllDetails
+{
+    NSDictionary *info = @{
+                           @"device" : [self getDeviceDetails],
+                           @"app"    : [self getAppDetails]
+                           };
+    return info;
 }
 @end

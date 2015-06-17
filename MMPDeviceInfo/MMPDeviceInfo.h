@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, DeviceType)
 
 @interface MMPDeviceInfo : NSObject
 
+#pragma mark - Device Info -
+
 /*!
  * Returns the platform information
  * @code
@@ -77,5 +79,54 @@ typedef NS_ENUM(NSInteger, DeviceType)
  * @return DeviceType - Enum value specifies whether it's an iPad or iPhone
  */
 + (DeviceType)getDeviceType;
+
+#pragma mark - App Info -
+
+/*!
+ * Returns the app name
+ * @code
+ * [MMPDeviceInfo getAppName];
+ * @endcode
+ * @return NSString - Name of the application
+ */
++ (NSString *)getAppName;
+
+/*!
+ * Returns the app version
+ * @code
+ * [MMPDeviceInfo getAppVersion];
+ * @endcode
+ * @return NSString - Version of the application
+ */
++ (NSString *)getAppVersion;
+
+#pragma mark - Utility -
+
+/*!
+ * Returns the details of device
+ * @code
+ * [MMPDeviceInfo getDeviceDetails];
+ * @endcode
+ * @return NSDictionary - Contains all the details of device
+ */
++ (NSDictionary *)getDeviceDetails;
+
+/*!
+ * Returns the details of application
+ * @code
+ * [MMPDeviceInfo getAppDetails];
+ * @endcode
+ * @return NSDictionary - Contains all the details of application
+ */
++ (NSDictionary *)getAppDetails;
+
+/*!
+ * Returns the all the details of device and application
+ * @code
+ * [MMPDeviceInfo getAllDetails];
+ * @endcode
+ * @return NSDictionary - Contains all the details of device and application
+ */
++ (NSDictionary *)getAllDetails;
 
 @end
