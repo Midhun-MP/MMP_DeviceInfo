@@ -117,8 +117,8 @@
  */
 + (NSString *)getAppVersion
 {
-    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    return appName;
+    NSString *appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    return appVersion;
 }
 
 #pragma mark - Utility -
